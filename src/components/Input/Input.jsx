@@ -11,10 +11,10 @@ function Input({ label, id, ...rest }) {
       <input
         id={id}
         {...rest}
-        onFocus={e =>
+        onFocus={() =>
           setInputProps({ translate: 'translate(0, 0.8rem)', scale: 'scale(1)' })
         }
-        onBlur={e => setInputProps({ translate: 'translate(0, 0.12rem)', scale: 'scale(0.8)'})}
+        onBlur={() => setInputProps({ translate: 'translate(0, 0.12rem)', scale: 'scale(0.8)'})}
       />
       <label htmlFor={id}>{label}</label>
     </InputBox>

@@ -4,6 +4,7 @@ export const InputBox = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 46%;
   padding: 1rem;
   margin-left: 1rem;
 
@@ -11,16 +12,14 @@ export const InputBox = styled.div`
     position: absolute;
     transform: ${({ translate, scale }) => `${translate} ${scale}`};
     transform-origin: top left;
-    transition: 200ms ease all;
+    transition: transform 0.2s ease;
     color: gray;
-    line-height: 1;
     left: 1.2rem;
     &:focus-within {
       transform: translate(0, 0.12rem) scale(0.8);
     }
   }
   & input {
-    width: 12.2rem;
     padding: 1rem 0.7rem 0.7rem 0.7rem;
     border-radius: 0.5rem;
     color: ${({ theme }) => theme.palette.primary.white};
@@ -28,7 +27,6 @@ export const InputBox = styled.div`
     outline: none;
     color: gray;
     overflow: visible;
-    line-height: 1;
     &:focus + label {
       color: gray !important;
       opacity: 1;

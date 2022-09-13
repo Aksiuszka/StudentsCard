@@ -1,12 +1,12 @@
-import { Navigation } from './styled';
+import { Nav } from './styled';
 import ZabkowicLogo from '../../assets/logo.png';
 function Navbar() {
   
   return (
-      <Navigation>
+      <Nav>
         <img src={ZabkowicLogo} alt="zabkowic logo" />
         <h4>Uniwersytet Żabkowica</h4>
-      </Navigation>
+      </Nav>
   );
 }
 

@@ -15,14 +15,14 @@ export const Container = styled.div`
 export const Section = styled.section`
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: start;
   width: 100%;
   height: 100%;
 `;
 export const DataContainer = styled.div`
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: start;
+  align-items: start;
   flex-direction: column;
   margin-left: 2rem;
   margin-top: 1.5rem;
@@ -59,8 +59,8 @@ export const GridContainer = styled.div`
     margin-top: 0.3rem;
     padding: 0.05rem;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: flex;
+    align-items: flex;
     flex-wrap: wrap;
     color: white;
     font-size: small;

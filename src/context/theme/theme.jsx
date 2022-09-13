@@ -22,7 +22,7 @@ const theme = {
     sm: '0.875rem',
     base: '1rem',
     lg: '1.5rem',
-    xl: '1.8rem',
+    xl: '3.3rem',
   },
   fontWeight: {
     regular: '300',

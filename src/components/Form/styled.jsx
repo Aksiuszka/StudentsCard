@@ -2,14 +2,11 @@ import styled from 'styled-components';
 
 export const Section = styled.div`
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   flex-wrap: wrap;
 `;
 export const StyledForm = styled.form`
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
   margin-right: 2rem;
 `;

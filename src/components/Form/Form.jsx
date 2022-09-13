@@ -1,21 +1,11 @@
-import { useState, useReducer } from 'react';
+import { useReducer } from 'react';
 import { StyledForm, Section, Button } from './styled';
-import Modal from '../Modal';
-import Card from '../Card';
 import { initialValues, reducer } from './reducerHelpers';
 import Input from '../Input';
 
-function Form() {
-  const [modalState, setModalState] = useState({ modalContent: initialValues, show: false });
+function Form({getHandleSubmit}) {
   const [state, dispatch] = useReducer(reducer, initialValues);
 
-  const closeModal = () => {
-    setModalState({ ...modalState, show: false });
-  };
-  const handleSubmit = e => {
-    e.preventDefault();
-    setModalState({ show: true, modalContent: state });
-  };
 
   const onNameChange = e => {
     dispatch({ type: 'FIRST_NAME', payload: e.target.value });
@@ -36,7 +26,7 @@ function Form() {
     dispatch({ type: 'ALBUM', payload: e.target.value });
   };
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm onSubmit={getHandleSubmit(state)}>
       <Section>
         <Input
           id="name"
@@ -57,7 +47,7 @@ function Form() {
         <Input
           id="pesel"
           label="Pesel:"
-          type="number"
+          type="text"
           value={state.pesel}
           onChange={onPeselChange}
           required
@@ -87,12 +77,7 @@ function Form() {
           required
         />
       </Section>
-      <Button type="submit">Wygeneruj</Button>
-      {modalState.show && (
-        <Modal closeModal={closeModal}>
-          <Card modalContent={modalState.modalContent} />
-        </Modal>
-      )}
+      <Button>Wygeneruj</Button>
     </StyledForm>
   );
 }
