@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { StyledForm, Section, Button } from './styled';
+import { StyledForm, Button } from './styled';
 import { initialValues, reducer } from './reducerHelpers';
 import Input from '../Input';
 
@@ -27,7 +27,7 @@ function Form({getHandleSubmit}) {
   };
   return (
     <StyledForm onSubmit={getHandleSubmit(state)}>
-      <Section>
+   
         <Input
           id="name"
           label="Imie:"
@@ -76,7 +76,7 @@ function Form({getHandleSubmit}) {
           onChange={onAlbumChange}
           required
         />
-      </Section>
+     
       <Button>Wygeneruj</Button>
     </StyledForm>
   );

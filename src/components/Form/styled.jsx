@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
-export const Section = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
+
 export const StyledForm = styled.form`
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-wrap: wrap;
   margin-right: 2rem;
 `;
 
