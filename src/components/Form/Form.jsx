@@ -1,83 +1,81 @@
-import { useReducer } from 'react';
 import { StyledForm, Button } from './styled';
-import { initialValues, reducer } from './reducerHelpers';
 import Input from '../Input';
+import { useFormik } from 'formik';
 
-function Form({getHandleSubmit}) {
-  const [state, dispatch] = useReducer(reducer, initialValues);
+function Form({ setModalContent }) {
+  const formik = useFormik({
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      pesel: '',
+      faculty: '',
+      album: '',
+      startDate: '',
+    },
+    onSubmit: values => {
+      setModalContent(values);
+      formik.resetForm();
+    },
+  });
 
-
-  const onNameChange = e => {
-    dispatch({ type: 'FIRST_NAME', payload: e.target.value });
-  };
-  const onSurnameChange = e => {
-    dispatch({ type: 'LAST_NAME', payload: e.target.value });
-  };
-  const onPeselChange = e => {
-    dispatch({ type: 'PESEL', payload: e.target.value });
-  };
-  const onStartChange = e => {
-    dispatch({ type: 'START', payload: e.target.value });
-  };
-  const onFacultyChange = e => {
-    dispatch({ type: 'FACULTY', payload: e.target.value });
-  };
-  const onAlbumChange = e => {
-    dispatch({ type: 'ALBUM', payload: e.target.value });
-  };
   return (
-    <StyledForm onSubmit={getHandleSubmit(state)}>
-   
-        <Input
-          id="name"
-          label="Imie:"
-          type="text"
-          value={state.firstName}
-          onChange={onNameChange}
-          required
-        />
-        <Input
-          id="surname"
-          label="Nazwisko:"
-          type="text"
-          value={state.lastName}
-          onChange={onSurnameChange}
-          required
-        />
-        <Input
-          id="pesel"
-          label="Pesel:"
-          type="text"
-          value={state.pesel}
-          onChange={onPeselChange}
-          required
-        />
-        <Input style={{color: 'transparent'}}
-          id="startDate"
-          label="Data rozpoczęcia:"
-          type="date"
-          value={state.startDate}
-          onChange={onStartChange}
-          required
-        />
-        <Input
-          id="kierunek"
-          label="Kierunek:"
-          type="text"
-          value={state.faculty}
-          onChange={onFacultyChange}
-          required
-        />
-        <Input
-          id="album"
-          label="Numer albumu:"
-          type="number"
-          value={state.album}
-          onChange={onAlbumChange}
-          required
-        />
-     
-      <Button>Wygeneruj</Button>
+    <StyledForm onSubmit={formik.handleSubmit}>
+      <Input
+        id="firstName"
+        label="Imie:"
+        type="text"
+        value={formik.values.firstName}
+        onChange={formik.handleChange}
+        handleFormikBlur={formik.handleBlur}
+      />
+
+      <Input
+        id="lastName"
+        label="Nazwisko:"
+        type="text"
+        value={formik.values.lastName}
+        onChange={formik.handleChange}
+        handleFormikBlur={formik.handleBlur}
+      />
+
+      <Input
+        id="pesel"
+        label="Pesel:"
+        type="text"
+        value={formik.values.pesel}
+        onChange={formik.handleChange}
+        handleFormikBlur={formik.handleBlur}
+      />
+
+      <Input
+        style={{ color: 'transparent' }}
+        id="startDate"
+        label="Data rozpoczęcia:"
+        type="date"
+        value={formik.values.startDate}
+        onChange={formik.handleChange}
+        handleFormikBlur={formik.handleBlur}
+      />
+
+      <Input
+        id="faculty"
+        label="Kierunek:"
+        type="text"
+        value={formik.values.faculty}
+        onChange={formik.handleChange}
+        handleFormikBlur={formik.handleBlur}
+      />
+
+      <Input
+        id="album"
+        label="Numer albumu:"
+        type="text"
+        value={formik.values.album}
+        onChange={formik.handleChange}
+        handleFormikBlur={formik.handleBlur}
+      />
+
+      <Button type="submit">Wygeneruj</Button>
     </StyledForm>
   );
 }
